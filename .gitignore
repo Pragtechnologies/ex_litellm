@@ -21,3 +21,13 @@ ex_litellm-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Dialyxir files
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
+
+# Vim buffer
+*.swp
+
+# Secret config
+*.secret.exs

@@ -8,6 +8,11 @@ defmodule ExLitellm.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Finch,
+       name: MyFinch,
+       pools: %{
+         default: [size: 70]
+       }}
       # Starts a worker by calling: ExLitellm.Worker.start_link(arg)
       # {ExLitellm.Worker, arg}
     ]

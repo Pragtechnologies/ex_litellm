@@ -1,0 +1,78 @@
+[
+  {
+    "request": {
+      "options": {
+        "receive_timeout": 240000
+      },
+      "body": "{\"messages\":[{\"role\":\"user\",\"content\":\"Convert to FHIR Resource `Juan dela Cruz is a 73-year-old male presenting for a 3:30pm routine follow up with his primary care physician, Dr. Emily Flores, at the Mabuhay Medical Center. He is attending to hear about the results of a regular blood test, which indicated a mild iron deficiency. Juan has hyperlipidemia and takes Lipitor 20mg twice daily, as well as aspirin for his angina. He had a hip replacement in 2019, and COVID in September of 2021. Since then he has had 3 COVID vaccinations, the first two with Pfizer and the third with Moderna. Dr. Flores sends him for a PSA test, and gives him a script for doxycycline.`\"}],\"system\":\"You are a healthcare interoperability expert that specializes in converting clinical narratives to FHIR resources. Ensure all FHIR resources follow the latest FHIR R4 specifications. Include appropriate codings from standard terminologies (SNOMED CT, LOINC, RxNorm) where applicable. Create a complete Bundle resource that includes all relevant resources with proper references between them. Follow these guidelines: 1) Use consistent resource IDs with meaningful names, 2) Include proper resource references, 3) Use proper FHIR datatypes, 4) Include appropriate status fields for all resources, 5) Provide complete code systems and display values, 6) Include only information explicitly stated in the text.\",\"response_format\":{\"type\":\"json_object\",\"schema\":{\"type\":\"object\",\"required\":[\"resourceType\",\"type\",\"entry\"],\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"transaction\",\"collection\",\"document\"]},\"entry\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"required\":[\"fullUrl\",\"resource\"],\"properties\":{\"resource\":{\"type\":\"object\"},\"fullUrl\":{\"type\":\"string\"}}}},\"resourceType\":{\"type\":\"string\",\"enum\":[\"Bundle\"]}}}},\"model\":\"claude-3-5-haiku-latest\",\"temperature\":0.0,\"max_tokens\":4000}",
+      "url": "https://lite.pragtechnologies.com/chat/completions",
+      "headers": {
+        "accept": "application/json",
+        "accept-encoding": "gzip",
+        "content-type": "application/json",
+        "ocp-apim-subscription-key": "sk-HXrF2HkYfOBGtZCPj6WQGA",
+        "user-agent": "req/0.5.10"
+      },
+      "method": "post",
+      "request_body": ""
+    },
+    "response": {
+      "binary": true,
+      "type": "ok",
+      "body": "g20AAAVYH4sIAAAAAAAA/81YbW/bNhD+K4I+R9aL32JjGJA63dptboM26z4kQUCTlM2WIlW+OHEC//cdRclOYrWzswwr4A8yjzzePc/d8cj7kJFwHOIFMrgoeYR7+SBPj9MoHWS9qNfNcXSMRjQaDHtklqWzfJig8CjEiiJDYWU67A36aTdJ+0dhIQnlThlHltCoG/WjBWJfbJQlWS9NsgwWytlnik29YwdL2JMaJgWI9EobWlznTMypKhUTME1YzmG3hWSY6nB8cR+CmOnFNeyvYdU41EaWsJgJQm/DcQJWUK3RnIbj+xBLYahTE95fhopqaRWm56uSXobj4DJ8ZQXh8H0E32YzSiS2Bazy4/ChVk5w8UCF+9+q8QwZtlnKiB/8bJGIABkUYWXvvEyggjZara5XyzxnmCFeW0RvjR//DRQETkEwqRSsr5x8TsFl5WcUqPFjxpRZnAI3XpCO+kmUpPDzYgDGCYZdbyDYynLmtThTPAV+6cKYchzHhqqCCcnlfNVZ8GFHqnk8AaI/VlPjZRYlWdL12peI23rjn/589/u793+9+7kxt6CEYcTfMCBsiygwRJjjfztAGnjhE0LhO6ZpIUFrh4lcxhrXqDcKwPfuoNdPkr4fJ0yXHK286A0wpjgrAYGCIWfiulrLIbjAyI8GGav9VIQNW4JGmPCy5vWyUb8/SpJem30epUDmweT9p7enUTraGCmFpsYxfM6KWhXkF1A8qliGWRXepZKYEgsx+h9A28+G3V6SDFtNLwNF4T+mPotqswHwXCpQ+tT0dNQEKMz0KP9znilHi4sbF7sPk42oCCjlqyjnsvL94Gw7VZ3gtVMR/FKr8IB+tYhDsmD03HDdI5O6g+Qp1NPTFpBPJYb4cOExdWnFBPXo7Q3ga4GlheKoWkqVktaAxiiXnMsbW/op+kFO+BpMSW0rR1rXOz3D7W50gs2k8vex5yfTVy2uo2JmOfI1pAosbasjZeNqThUV+HFBjp/WYB+SSBkAr0TCNLTBMcKWjFgXFq36HgRevBNrax8pXD4Okof/75+4M0Uzu0ArzyPiwYR6Vg7g0i91G7i6RYv2A8hVO0Btl8ymwG2LtFPlCEEzTicSfC/NvjF+c3PTEbzoCLbozOUyBmspUngR24LrWN0KKAE7dbrfTQdtVfoPb3KQJcH01+C9AnjOnU3bovJ87onU9VnoPNlmf5YU88DcQLsREATcHlKV9iMC6ZJBc/MjEpGO0hYaThqD/xXo+4L4tiisYHd1wuyghyWkZ7RE2BU9vQti3VE2tameOKl9vNgHuqZI5QumYs1IjJe3T6HKkuMWpM5ydkfV5sgOPvndm+bh2Xu1nbNTkCuB2jZrOoCmGT04OSTGVlWTv9Nn7MnnKUNzITUU2g+0lKotI2ZcShIZqk3rUdMc0YectVwygR2yO2D24IyNkhZA3yopjoKPVNniBeoLNLaYW11XfaCLcRIw2AIaedd3gJrV/iCCVUsoSR/oV7tB6RGEpUbfAPBhVWHVdahufxRpTv8XATZN+slxK7BnSjqDaKBLil0HFZzMg4spNA3xUnK4a10FTHjgA6j2Z9BOFOgFKFAeLX+7OfwoP7jof5sdIm9XeOVuFzQqQQVWrNzWtwPZ+l+OBrhKJa196MaxH4CwqzU8BCjJ4e4fQnTBHQo6OxgyUvJraK64bh4UciuwU1SN+kHXu8HlYPNy0DxMXBv5hQpYmcFV8shdq4rSbAaH3WOn3yC+nTfsdY92FVwTaqCh2JjwSNFWeB/C2wmTG231AwjC0G5vBpN1PXRdvcO4TZgo7daspJGDmDyVrdd/A9qnjUT1EQAA",
+      "headers": {
+        "date": "Tue, 06 May 2025 06:30:15 GMT",
+        "content-type": "application/json",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "server": "cloudflare",
+        "x-litellm-call-id": "ac0e5c94-0c89-46cd-acb7-aac1342f1ba2",
+        "x-litellm-model-id": "1fd305da-2d5d-4dac-a452-7cdeaf33e9ae",
+        "x-litellm-version": "1.65.2",
+        "x-litellm-response-cost": "0.008610399999999999",
+        "x-litellm-key-spend": "0.0720256",
+        "x-ratelimit-limit-requests": "50",
+        "x-ratelimit-remaining-requests": "49",
+        "x-ratelimit-limit-tokens": "60000",
+        "x-ratelimit-remaining-tokens": "60000",
+        "llm_provider-date": "Tue, 06 May 2025 06:30:15 GMT",
+        "llm_provider-content-type": "application/json",
+        "llm_provider-transfer-encoding": "chunked",
+        "llm_provider-connection": "keep-alive",
+        "llm_provider-anthropic-ratelimit-input-tokens-limit": "50000",
+        "llm_provider-anthropic-ratelimit-input-tokens-remaining": "50000",
+        "llm_provider-anthropic-ratelimit-input-tokens-reset": "2025-05-06T06:29:54Z",
+        "llm_provider-anthropic-ratelimit-output-tokens-limit": "10000",
+        "llm_provider-anthropic-ratelimit-output-tokens-remaining": "10000",
+        "llm_provider-anthropic-ratelimit-output-tokens-reset": "2025-05-06T06:30:15Z",
+        "llm_provider-anthropic-ratelimit-requests-limit": "50",
+        "llm_provider-anthropic-ratelimit-requests-remaining": "49",
+        "llm_provider-anthropic-ratelimit-requests-reset": "2025-05-06T06:29:54Z",
+        "llm_provider-anthropic-ratelimit-tokens-limit": "60000",
+        "llm_provider-anthropic-ratelimit-tokens-remaining": "60000",
+        "llm_provider-anthropic-ratelimit-tokens-reset": "2025-05-06T06:29:54Z",
+        "llm_provider-request-id": "req_011CNqoeodreX7M1siQMHSjy",
+        "llm_provider-strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "llm_provider-anthropic-organization-id": "1550357d-3b0f-48f9-97d6-e681d7d97adc",
+        "llm_provider-via": "1.1 google",
+        "llm_provider-cf-cache-status": "DYNAMIC",
+        "llm_provider-x-robots-tag": "none",
+        "llm_provider-server": "cloudflare",
+        "llm_provider-cf-ray": "93b66cff08453194-BOM",
+        "llm_provider-content-encoding": "gzip",
+        "llm_provider-x-ratelimit-limit-requests": "50",
+        "llm_provider-x-ratelimit-remaining-requests": "49",
+        "llm_provider-x-ratelimit-limit-tokens": "60000",
+        "llm_provider-x-ratelimit-remaining-tokens": "60000",
+        "x-litellm-model-group": "claude-3-5-haiku-latest",
+        "x-litellm-attempted-retries": "0",
+        "x-litellm-attempted-fallbacks": "0",
+        "cf-cache-status": "DYNAMIC",
+        "content-encoding": "gzip",
+        "cf-ray": "93b66cfde990ce3a-SIN",
+        "alt-svc": "h3=\":443\"; ma=86400"
+      },
+      "status_code": 200
+    }
+  }
+]
