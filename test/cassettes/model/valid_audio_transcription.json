@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "options": {
+        "receive_timeout": 240000
+      },
+      "body": "{:stream, #Function<61.65765362/2 in Stream.transform/3>}",
+      "url": "https://lite.pragtechnologies.com/audio/transcriptions",
+      "headers": {
+        "accept-encoding": "gzip",
+        "content-type": "multipart/form-data; boundary=\"==e48a22f95198a8acf2c3983d2893d5c9==\"",
+        "ocp-apim-subscription-key": "sk-8PfyuigDaFi0YgbMe5CNXQ",
+        "user-agent": "req/0.5.10"
+      },
+      "method": "post",
+      "request_body": ""
+    },
+    "response": {
+      "binary": false,
+      "type": "ok",
+      "body": "{\"error\":{\"message\":\"litellm.BadRequestError: OpenAIException - Audio file is too short. Minimum audio length is 0.1 seconds.. Received Model Group=whisper-1\\nAvailable Model Group Fallbacks=None LiteLLM Retried: 1 times, LiteLLM Max Retries: 2\",\"type\":\"None\",\"param\":\"None\",\"code\":\"500\"}}",
+      "headers": {
+        "date": "Thu, 14 Aug 2025 06:46:15 GMT",
+        "content-type": "application/json",
+        "content-length": "289",
+        "connection": "keep-alive",
+        "server": "cloudflare",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "cf-cache-status": "DYNAMIC",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4sjKU23wi1YzQSaF8VcZ49gl8AT0mlwpqKZBa73nfMEzcBu71R2eOg8yfhaOsi2Idyrj3EDQLW8b5H1EZP2SSe%2BR0znaMic%2BUnF7KLvKAn3j3ou1wTxcr8g%3D\"}]}",
+        "cf-ray": "96ee7e4f9cd25dfb-HKG",
+        "alt-svc": "h3=\":443\"; ma=86400"
+      },
+      "status_code": 500
+    }
+  }
+]

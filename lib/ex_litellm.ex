@@ -21,16 +21,38 @@ defmodule ExLitellm do
   #   |> Req.get(url: url)
   # end
 
-  def post(url, body \\ %{}) do
+  def post(url, body \\ %{}, opts \\ []) do
+  req =
     init()
     |> auth()
-    |> Req.post(
-      url: url,
-      json: body,
-      connect_options: [timeout: 240_000],
-      receive_timeout: 240_000
-    )
-  end
+
+  req =
+    case opts[:multipart] do
+      true ->
+        # For multipart, we must provide the exact headers and body
+        req
+        |> Req.Request.put_headers(opts[:headers] || [])
+        |> Req.post(
+          url: url,
+          body: opts[:body],
+          connect_options: [timeout: 240_000],
+          receive_timeout: 240_000
+        )
+
+      _ ->
+        # Default JSON
+        req
+        |> Req.post(
+          url: url,
+          json: body,
+          connect_options: [timeout: 240_000],
+          receive_timeout: 240_000
+        )
+    end
+
+  req
+end
+
 
   defp init do
     base_url = Application.get_env(:ex_litellm, :base_url)
