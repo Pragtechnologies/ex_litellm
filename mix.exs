@@ -1,7 +1,7 @@
 defmodule ExLitellm.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.1"
   @name "ExLitellm"
   @organization "pragtechnologies"
   @description "Elixir library for LiteLLM"

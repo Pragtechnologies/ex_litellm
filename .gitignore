@@ -31,3 +31,5 @@ ex_litellm-*.tar
 
 # Secret config
 *.secret.exs
+
+.tool-versions
