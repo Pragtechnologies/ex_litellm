@@ -1,6 +1,8 @@
 defmodule ExLitellmTest do
   alias ExLitellm.Model
 
+  alias Multipart.Part
+
   use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Finch
 
@@ -74,4 +76,42 @@ defmodule ExLitellmTest do
       end
     end
   end
+
+  # describe "audio_transcribe/1" do
+  #   test "returns a successful transcription" do
+  #     use_cassette "valid_audio_transcription" do
+  #       # Prepare a small audio test file
+  #       file_path = "test/fixtures/audio.wav"
+
+  #       model = "whisper-1"
+  #       temperature = 0.0
+  #       filename = Path.basename(file_path)
+
+  #       multipart =
+  #         Multipart.new()
+  #         |> Multipart.add_part(%Part{
+  #           body: File.read!(file_path),
+  #           headers: [
+  #             {"Content-Disposition", ~s(form-data; name="file"; filename="#{filename}")},
+  #             {"Content-Type", "audio/wav"}
+  #           ]
+  #         })
+  #         |> Multipart.add_part(%Part{
+  #           body: model,
+  #           headers: [{"Content-Disposition", ~s(form-data; name="model")}]
+  #         })
+
+  #       assert {:ok, result} = Model.audio_transcribe(multipart)
+  #       # Depending on Whisper output structure
+  #       assert is_map(result.body)
+  #       assert is_binary(result.body["text"])
+  #       refute result.body["text"] == ""
+  #     end
+  #   end
+
+  #   test "returns error for non-multipart input" do
+  #     assert {:error, message} = Model.audio_transcribe("not a multipart")
+  #     assert message == "You must pass a valid Multipart struct"
+  #   end
+  # end
 end
